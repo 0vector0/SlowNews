@@ -38,6 +38,7 @@
                         <input type="submit" name="sumbit" value="Get Result">
                     </p></form>
                 <p>
+                <p>Длина в дюймах: <output name="result">0</output></p>
                         <%
                           if (request.getParameter("operation") != null && request.getParameter("first") != null && request.getParameter("second") != null) {
                          try {
@@ -65,7 +66,6 @@
                  break;
          }
          }
-
         %>
 
                         <%=first + " " + operation + " " + second + " = " + result%>
