@@ -21,24 +21,21 @@
             <div class="calc">
                 <form name="calculation.jsp" method="GET">
                     <p>
-
                         <input type="radio" name="operation" value="add" checked>addition<br>
                         <input type="radio" name="operation" value="sub">subtraction<br>
                         <input type="radio" name="operation" value="mult">multiplication<br>
                         <input type="radio" name="operation" value="div">division<br>
-
-
                     </p>
                     <p>
-                        <label for="first">Первое число</label> <input type="text" id="first"
+                        <label for="first">First number</label> <input type="text" id="first"
                                                                        name="first">
                     </p>
                     <p>
-                        <label for="second">Второе число</label> <input type="text" id="second"
-                                                                        name="second">
+                        <label for="second">Second number</label> <input type="text" id="second"
+                                                                         name="second">
                     </p>
                     <p>
-                        <input type="submit" name="sumbit" value="Отправить">
+                        <input type="submit" name="sumbit" value="Get Result">
                     </p>
                 </form>
                 <p>
@@ -49,16 +46,15 @@
     double second = Double.parseDouble(request.getParameter("second"));
     try {
         double result = new Calculator().getResult(operation, first, second); %>
-                                <%=result%><%--response.getWriter().println("<h1>" + result + "</h1>");--%>
-                                <%
-
+                        <%=first + " " + operation + " " + second + " = " + result%>
+                        <%
     } catch (ArithmeticException e) { %>
-                                <%="division by zero"%>
-                            <%--response.getWriter().println("<h1>division by zero</h1>");--%>
-
+                        <%="division by zero"%>
+                        <%
     }
-} catch (NumberFormatException e) {
-    response.getWriter().println("<h1>invalid number format</h1>");
+} catch (NumberFormatException e) { %>
+                        <%="invalid number format"%>
+                        <%
 }
 %>
             </div>
@@ -77,12 +73,9 @@
     </div>
     <div class="right-column">
         <p>
-            Правая
+            Right-Column
         </p>
     </div>
 </div>
-
 </body>
-
-
 </html>

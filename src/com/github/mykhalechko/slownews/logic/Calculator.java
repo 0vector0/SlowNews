@@ -2,7 +2,7 @@ package com.github.mykhalechko.slownews.logic;
 
 public class Calculator {
 
-    public double getResult(String operation, int first, int second){
+    public double getResult(String operation, double first, double second){
 
         // addition, subtraction, multiplication, division
 
@@ -14,10 +14,10 @@ public class Calculator {
         if (operation.equalsIgnoreCase("SUB")) {
             return  first - second;
         }
-        if (operation.equalsIgnoreCase("mult")) {
+        if (operation.equalsIgnoreCase("MULT")) {
             return  first * second;
         }
-        if (operation.equalsIgnoreCase("div")) {
+        if (operation.equalsIgnoreCase("DIV")) {
 
             if (second == 0) {
                 new ArithmeticException();
