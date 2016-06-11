@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.Arrays" %><%--
   Created by IntelliJ IDEA.
   User: vector
   Date: 11.06.2016
@@ -10,7 +10,9 @@
 <head>
 
 </head>
-<body><div>
+<body>
+<%=request.getParameterMap()%>
+<div>
     <img src="images/learn-java.png" alt="keep calm and learn java" width="20%" class="leftimg">
 </div>
 
