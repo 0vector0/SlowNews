@@ -39,7 +39,9 @@
                     </p>
                 </form>
                 <p>
-                        <% try {
+                        <%
+                          if (request.getParameter("operation") != null && request.getParameter("first") != null && request.getParameter("second") != null) {
+                         try {
     request.getCharacterEncoding();
     String operation = request.getParameter("operation");
     double first = Double.parseDouble(request.getParameter("first"));
@@ -56,6 +58,7 @@
                         <%="invalid number format"%>
                         <%
 }
+}
 %>
             </div>
             </p>
@@ -65,8 +68,8 @@
         <h3 class="menu-title">Меню</h3>
         <nav class="menu">
             <ul>
-                <li><a href="index.html">Index</a></li>
-                <li><a href="calculation.html">Calculation</a></li>
+                <li><a href="index.jsp">Index</a></li>
+                <li><a href="calculator.jsp">Calculation</a></li>
                 <li><a href="404.html">404</a></li>
             </ul>
         </nav>
