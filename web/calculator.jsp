@@ -13,31 +13,30 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-
 <div class="container">
     <div class="content">
-        <header>Центральная колонка</header>
+        <header>Calculator</header>
         <div class="content-text">
             <div class="calc">
                 <form name="calculation.jsp" method="GET">
-                    <p>
-                        <input type="radio" name="operation" value="add" checked>addition<br>
-                        <input type="radio" name="operation" value="sub">subtraction<br>
-                        <input type="radio" name="operation" value="mult">multiplication<br>
-                        <input type="radio" name="operation" value="div">division<br>
+                    <p><label>Choise operation<br>
+                        <input type="radio" name="operation" value="add" checked>+
+                        <input type="radio" name="operation" value="sub">-
+                        <input type="radio" name="operation" value="mult">*
+                        <input type="radio" name="operation" value="div">/
+                    </label>
                     </p>
                     <p>
-                        <label for="first">First number</label> <input type="text" id="first"
-                                                                       name="first">
+                        <label for="first">First number</label> <input required type="text" id="first"
+                                                                       name="first" placeholder="input first number">
                     </p>
                     <p>
-                        <label for="second">Second number</label> <input type="text" id="second"
-                                                                         name="second">
+                        <label for="second">Second number</label> <input required type="text" id="second"
+                                                                         name="second" placeholder="input second number">
                     </p>
                     <p>
                         <input type="submit" name="sumbit" value="Get Result">
-                    </p>
-                </form>
+                    </p></form>
                 <p>
                         <%
                           if (request.getParameter("operation") != null && request.getParameter("first") != null && request.getParameter("second") != null) {
@@ -47,7 +46,28 @@
     double first = Double.parseDouble(request.getParameter("first"));
     double second = Double.parseDouble(request.getParameter("second"));
     try {
-        double result = new Calculator().getResult(operation, first, second); %>
+        double result = new Calculator().getResult(operation, first, second);
+         switch (operation) {
+                 case "add": {
+                 operation = "+";
+                 break;
+                 }
+                 case "sub": {
+                 operation = "-";
+                 break;
+                 }
+                 case "mult": {
+                 operation = "*";
+                 break;
+                 }
+                 case "div": {
+                 operation = "/";
+                 break;
+         }
+         }
+
+        %>
+
                         <%=first + " " + operation + " " + second + " = " + result%>
                         <%
     } catch (ArithmeticException e) { %>
@@ -61,7 +81,6 @@
 }
 %>
             </div>
-            </p>
         </div>
     </div>
     <div class="left-column">
