@@ -43,7 +43,8 @@
                     </p></form>
                 <p>
                         <%
-                          if (request.getParameter("operation") != null && request.getParameter("first") != null && request.getParameter("second") != null) {
+                          if (request.getParameter("operation") != null && request.getParameter("first") != null
+                          && request.getParameter("second") != null) {
                          try {
     request.getCharacterEncoding();
     Operation operation = Operation.valueOf(request.getParameter("operation").toLowerCase());
@@ -52,7 +53,8 @@
     try {
         double result = new Calculator().getResult(operation, first, second);
         %>
-                        <%=String.format("%.2f", first) + " " + operation + " " + String.format("%.2f", second)  + " = " + String.format("%.2f", result)%>
+                        <%=String.format("%.2f", first) + " " + operation + " " + String.format("%.2f", second)
+                        + " = " + String.format("%.2f", result)%>
                         <%
     } catch (ArithmeticException e) { %>
                         <%="division by zero"%>
