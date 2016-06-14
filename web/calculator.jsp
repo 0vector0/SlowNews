@@ -28,7 +28,7 @@
                     </p>
                     <p>
                         <label for="first">First number</label> <input required type="text" id="first"
-                                                                       name="first" placeholder="input first number">
+                                                                       name="first" placeholder="input first number" autofocus>
                     </p>
                     <p>
                         <label for="second">Second number</label> <input required type="text" id="second"
