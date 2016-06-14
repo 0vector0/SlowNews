@@ -2,28 +2,25 @@ package com.github.mykhalechko.slownews.logic;
 
 public class Calculator {
 
-    public double getResult(String operation, double first, double second){
+    public double getResult(Operation operation, double first, double second) {
 
         // addition, subtraction, multiplication, division
-
         double result = 0;
-
-        if (operation.equalsIgnoreCase("ADD")) {
-            return  first + second;
-        }
-        if (operation.equalsIgnoreCase("SUB")) {
-            return  first - second;
-        }
-        if (operation.equalsIgnoreCase("MULT")) {
-            return  first * second;
-        }
-        if (operation.equalsIgnoreCase("DIV")) {
-
-            if (second == 0) {
-                new ArithmeticException();
+        switch (operation) {
+            case add:
+                return first + second;
+            case sub:
+                return first - second;
+            case mult:
+                return first * second;
+            case div: {
+                if (second == 0) {
+                    new ArithmeticException();
+                }
+                return first / second;
             }
-            return (first / second);
         }
+        new NumberFormatException();
         return result;
     }
 }

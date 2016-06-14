@@ -1,4 +1,5 @@
-<%@ page import="com.github.mykhalechko.slownews.logic.Calculator" %><%--
+<%@ page import="com.github.mykhalechko.slownews.logic.Calculator" %>
+<%@ page import="com.github.mykhalechko.slownews.logic.Operation" %><%--
   Created by IntelliJ IDEA.
   User: vector
   Date: 11.06.2016
@@ -28,11 +29,13 @@
                     </p>
                     <p>
                         <label for="first">First number</label> <input required type="text" id="first"
-                                                                       name="first" placeholder="input first number" autofocus>
+                                                                       name="first" placeholder="input first number"
+                                                                       autofocus>
                     </p>
                     <p>
                         <label for="second">Second number</label> <input required type="text" id="second"
-                                                                         name="second" placeholder="input second number">
+                                                                         name="second"
+                                                                         placeholder="input second number">
                     </p>
                     <p>
                         <input type="submit" name="sumbit" value="Get Result">
@@ -42,31 +45,12 @@
                           if (request.getParameter("operation") != null && request.getParameter("first") != null && request.getParameter("second") != null) {
                          try {
     request.getCharacterEncoding();
-    String operation = request.getParameter("operation");
+    Operation operation = Operation.valueOf(request.getParameter("operation").toLowerCase());
     double first = Double.parseDouble(request.getParameter("first"));
     double second = Double.parseDouble(request.getParameter("second"));
     try {
         double result = new Calculator().getResult(operation, first, second);
-         switch (operation) {
-                 case "add": {
-                 operation = "+";
-                 break;
-                 }
-                 case "sub": {
-                 operation = "-";
-                 break;
-                 }
-                 case "mult": {
-                 operation = "*";
-                 break;
-                 }
-                 case "div": {
-                 operation = "/";
-                 break;
-         }
-         }
         %>
-
                         <%=first + " " + operation + " " + second + " = " + result%>
                         <%
     } catch (ArithmeticException e) { %>
