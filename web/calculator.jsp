@@ -1,5 +1,6 @@
 <%@ page import="com.github.mykhalechko.slownews.logic.Calculator" %>
-<%@ page import="com.github.mykhalechko.slownews.logic.Operation" %><%--
+<%@ page import="com.github.mykhalechko.slownews.logic.Operation" %>
+<%--
   Created by IntelliJ IDEA.
   User: vector
   Date: 11.06.2016
@@ -51,7 +52,7 @@
     try {
         double result = new Calculator().getResult(operation, first, second);
         %>
-                        <%=first + " " + operation + " " + second + " = " + result%>
+                        <%=String.format("%.2f", first) + " " + operation + " " + String.format("%.2f", second)  + " = " + String.format("%.2f", result)%>
                         <%
     } catch (ArithmeticException e) { %>
                         <%="division by zero"%>
