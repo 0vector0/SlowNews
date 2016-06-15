@@ -1,0 +1,6 @@
+http://www.infoworld.com/article/3075307/web-development/doppiojvm-brings-jvm-apps-to-the-browser.html
+http://www.infoworld.com/article/3069995/java/new-javascript-library-brings-java-to-browsers-without-applets.html
+http://www.javaworld.com/article/3033445/learn-java/java-101-polymorphism-in-java.html
+http://www.javaworld.com/article/3062567/android/10-android-apps-developers-will-love.html
+http://www.javaworld.com/article/3030214/big-data/open-source-java-projects-apache-phoenix.html
+http://www.javaworld.com/article/2998326/java-security/developers-weigh-json-security-proposals-for-java-ee-8.html
