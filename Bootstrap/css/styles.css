@@ -1,6 +1,12 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
     padding-top: 100px;
     padding-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 .page-header {
@@ -8,16 +14,23 @@ body {
 }
 
 #left {
-/*    background: #f6f6f6;*/
+    /*    background: #f6f6f6;*/
 }
 
 #right {
     background: #f6f6f6;
 }
 
+#center .panel-body  img{
+     
+    max-width: 100%;
+    height: auto;
+
+}
+
 .navbar {
     background: #cc3433;
-        min-height: 60px;
+    min-height: 60px;
 }
 
 .navbar-default .navbar-brand {
@@ -33,18 +46,7 @@ body {
     font-size: 16px;
 }
 
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 30px;
-    background: #cc3433;
-}
 
-.footer .text-muted {
-    color: white;
-}
 
 .navbar-collapse p {
     color: white;
@@ -60,9 +62,23 @@ body {
     margin-left: 15px;
 }
 
-
 .panel-default> .panel-heading {
     color: white;
     background-color: #cc3433;
     border-color: #cc3433;
+}
+
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+   height: 30px;
+    background: #cc3433;
+    
+}
+
+.footer .text-muted {
+    color: white;
 }
