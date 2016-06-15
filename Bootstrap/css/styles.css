@@ -1,0 +1,68 @@
+body {
+    padding-top: 100px;
+    padding-bottom: 60px;
+}
+
+.page-header {
+    background: #cc3433;
+}
+
+#left {
+/*    background: #f6f6f6;*/
+}
+
+#right {
+    background: #f6f6f6;
+}
+
+.navbar {
+    background: #cc3433;
+        min-height: 60px;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-brand {
+    font-size: 40px;
+}
+
+.navbar-default .navbar-nav> li> a {
+    color: white;
+    font-size: 16px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 30px;
+    background: #cc3433;
+}
+
+.footer .text-muted {
+    color: white;
+}
+
+.navbar-collapse p {
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.navbar-collapse .img-rounded {
+    border-radius: 6px;
+    margin-left: 15px;
+}
+
+
+.panel-default> .panel-heading {
+    color: white;
+    background-color: #cc3433;
+    border-color: #cc3433;
+}
