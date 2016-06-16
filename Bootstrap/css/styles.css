@@ -83,16 +83,23 @@ body {
     position: relative;
 }
 
-.item, .article-img img {
+/*.item,*/
+.article-img img {
     z-index: 1;
 }
 
-.item, .article .btn-link {
+
+.article .btn-link ,
+.article-img .btn-link  {
     margin-bottom: -80px;
     margin-right: 5px;
     font-size: 2em;
     color: yellow;
     z-index: 2;
+}
+
+.article .article-h3 {
+    padding-right: 80px;
 }
 
 .article .article-text img  {
