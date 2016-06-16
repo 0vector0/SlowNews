@@ -1,6 +1,6 @@
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
@@ -21,11 +21,9 @@ body {
     background: #f6f6f6;
 }
 
-#center .panel-body  img{
-     
+#center .panel-body img {
     max-width: 100%;
     height: auto;
-
 }
 
 .navbar {
@@ -45,8 +43,6 @@ body {
     color: white;
     font-size: 16px;
 }
-
-
 
 .navbar-collapse p {
     color: white;
@@ -68,19 +64,96 @@ body {
     border-color: #cc3433;
 }
 
-
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     /* Set the fixed height of the footer here */
-   height: 30px;
+    height: 30px;
     background: #cc3433;
-    
 }
 
-.footer .text-muted {
+.footer a {
     color: white;
 }
 
+.article-img {
+    margin-top: -20px;
+    margin-bottom: 0;
+    position: relative;
+}
 
+.item .img {
+    z-index: 1;
+}
+
+.item .btn-link {
+    margin-bottom: -80px;
+    margin-right: 5px;
+    font-size: 2em;
+    color: yellow;
+    z-index: 2;
+}
+
+.btn-success {
+  
+  background-color: #cc3433;
+  border-color: #cc3433;
+}
+.btn-success:focus,
+.btn-success.focus {
+  
+  background-color: #cc3433;
+  border-color: #cc3433;
+}
+.btn-success:hover {
+ 
+  background-color: #701515;
+  border-color: #701515;
+}
+.btn-success:active,
+.btn-success.active,
+.open > .dropdown-toggle.btn-success {
+  
+  background-color: #cc3433;
+  border-color: #cc3433;
+}
+.btn-success:active:hover,
+.btn-success.active:hover,
+.open > .dropdown-toggle.btn-success:hover,
+.btn-success:active:focus,
+.btn-success.active:focus,
+.open > .dropdown-toggle.btn-success:focus,
+.btn-success:active.focus,
+.btn-success.active.focus,
+.open > .dropdown-toggle.btn-success.focus {
+  
+  background-color: #701515;
+  border-color: #701515;
+}
+
+.btn-success.disabled,
+.btn-success[disabled],
+fieldset[disabled] .btn-success,
+.btn-success.disabled:hover,
+.btn-success[disabled]:hover,
+fieldset[disabled] .btn-success:hover,
+.btn-success.disabled:focus,
+.btn-success[disabled]:focus,
+fieldset[disabled] .btn-success:focus,
+.btn-success.disabled.focus,
+.btn-success[disabled].focus,
+fieldset[disabled] .btn-success.focus,
+.btn-success.disabled:active,
+.btn-success[disabled]:active,
+fieldset[disabled] .btn-success:active,
+.btn-success.disabled.active,
+.btn-success[disabled].active,
+fieldset[disabled] .btn-success.active {
+  background-color: #cc3433;
+  border-color: #cc3433;
+}
+.btn-success .badge {
+  color: #cc3433;
+  
+}
