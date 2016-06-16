@@ -73,7 +73,7 @@ body {
     background: #cc3433;
 }
 
-.footer a {
+ .footer a {
     color: white;
 }
 
@@ -83,17 +83,22 @@ body {
     position: relative;
 }
 
-.item .img {
+.item, .article-img img {
     z-index: 1;
 }
 
-.item .btn-link {
+.item, .article .btn-link {
     margin-bottom: -80px;
     margin-right: 5px;
     font-size: 2em;
     color: yellow;
     z-index: 2;
 }
+
+.article .article-text img  {
+    float: right;
+    
+} 
 
 .btn-success {
   
