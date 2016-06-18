@@ -21,7 +21,7 @@
         <div class="content-text">
             <div class="calc">
                 <form name="calculation.jsp" method="GET">
-                    <p><label>Choise operation<br>
+                    <p><label>Choice operation<br>
                         <input type="radio" name="operation" value="add" checked>+
                         <input type="radio" name="operation" value="sub">-
                         <input type="radio" name="operation" value="mult">*
@@ -39,33 +39,11 @@
                                                                          placeholder="input second number">
                     </p>
                     <p>
-                        <input type="submit" name="sumbit" value="Get Result">
+                        <input type="submit" name="submit" value="Get Result">
                     </p></form>
-                <p>
-                        <%
-                          if (request.getParameter("operation") != null && request.getParameter("first") != null
-                          && request.getParameter("second") != null) {
-                         try {
-    request.getCharacterEncoding();
-    Operation operation = Operation.valueOf(request.getParameter("operation").toLowerCase());
-    double first = Double.parseDouble(request.getParameter("first"));
-    double second = Double.parseDouble(request.getParameter("second"));
-    try {
-        double result = new Calculator().getResult(operation, first, second);
-        %>
-                        <%=String.format("%.2f", first) + " " + operation + " " + String.format("%.2f", second)
-                        + " = " + String.format("%.2f", result)%>
-                        <%
-    } catch (ArithmeticException e) { %>
-                        <%="division by zero"%>
-                        <%
-    }
-} catch (NumberFormatException e) { %>
-                        <%="invalid number format"%>
-                        <%
-}
-}
-%>
+
+                <jsp:include page="CalculatorServlet" />
+
             </div>
         </div>
     </div>
