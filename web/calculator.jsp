@@ -20,7 +20,7 @@
         <header>Calculator</header>
         <div class="content-text">
             <div class="calc">
-                <form name="calculation.jsp" method="GET">
+                <form name="calculation.jsp" method="POST">
                     <p><label>Choice operation<br>
                         <input type="radio" name="operation" value="add" checked>+
                         <input type="radio" name="operation" value="sub">-
@@ -40,9 +40,13 @@
                     </p>
                     <p>
                         <input type="submit" name="submit" value="Get Result">
-                    </p></form>
+                    </p>
+                        <p>
+                            <output name="result"><jsp:include page="CalculatorServlet" /></output>
+                        </p>
+                </form>
 
-                <jsp:include page="CalculatorServlet" />
+
 
             </div>
         </div>

@@ -15,7 +15,15 @@ public class CalculatorServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
+        }
 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    private void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
         if (request.getParameter("operation") != null && request.getParameter("first") != null
                 && request.getParameter("second") != null) {
             try {
@@ -38,8 +46,5 @@ public class CalculatorServlet extends HttpServlet {
 
             }
         }
-
-
-//        response.getWriter().println(request.getParameter("second"));
     }
 }
