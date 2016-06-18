@@ -4,7 +4,7 @@ package com.github.mykhalechko.slownews.logic;
  * Created by vector on 14.06.2016.
  */
 public enum Operation {
-    add("add"), sub("sub"), mult("mult"), div("div");
+    ADD("ADD"), SUB("SUB"), MULT("MULT"), DIV("DIV");
 
     private String name;
 
@@ -19,16 +19,16 @@ public enum Operation {
     public String toString() {
 
         switch (this) {
-            case add: {
+            case ADD: {
                 return "+";
             }
-            case sub: {
+            case SUB: {
                 return "-";
             }
-            case mult: {
+            case MULT: {
                 return "*";
             }
-            case div: {
+            case DIV: {
                 return "/";
             }
         }

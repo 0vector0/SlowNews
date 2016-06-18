@@ -25,7 +25,7 @@ public class CalculatorServlet extends HttpServlet {
                 && request.getParameter("second") != null) {
             try {
                 request.getCharacterEncoding();
-                Operation operation = Operation.valueOf(request.getParameter("operation").toLowerCase());
+                Operation operation = Operation.valueOf(request.getParameter("operation").toUpperCase());
                 double first = Double.parseDouble(request.getParameter("first"));
                 double second = Double.parseDouble(request.getParameter("second"));
                 try {

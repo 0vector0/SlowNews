@@ -6,13 +6,13 @@ public class Calculator {
 
         // addition, subtraction, multiplication, division
         switch (operation) {
-            case add:
+            case ADD:
                 return first + second;
-            case sub:
+            case SUB:
                 return first - second;
-            case mult:
+            case MULT:
                 return first * second;
-            case div: {
+            case DIV: {
                 if (second == 0) {
                     throw new ArithmeticException();
                 } else {
