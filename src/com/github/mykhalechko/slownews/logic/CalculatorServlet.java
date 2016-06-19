@@ -21,6 +21,9 @@ public class CalculatorServlet extends HttpServlet {
     }
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        System.out.println(request.getParameter("operation").toUpperCase());
+
         if (request.getParameter("operation") != null && request.getParameter("first") != null
                 && request.getParameter("second") != null) {
             try {
@@ -28,6 +31,8 @@ public class CalculatorServlet extends HttpServlet {
                 Operation operation = Operation.valueOf(request.getParameter("operation").toUpperCase());
                 double first = Double.parseDouble(request.getParameter("first"));
                 double second = Double.parseDouble(request.getParameter("second"));
+                System.out.print(operation + " " + first + " " + second);
+
                 try {
                     double result = new Calculator().getResult(operation, first, second);
                     response.getWriter().println(String.format("%.2f", first) + " " + operation + " " + String.format("%.2f", second)

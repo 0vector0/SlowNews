@@ -5,6 +5,8 @@
     <title>Calculator</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="js/jquery-1.11.1.js" type="text/javascript"></script>
+    <script src="js/calculator-ajax.js" type="text/javascript"></script>
 </head>
 <body>
 <div class="container">
@@ -12,7 +14,7 @@
         <header>Calculator</header>
         <div class="content-text">
             <div class="calc">
-                <form name="calculation.jsp" method="POST">
+                <form>
                     <p>
                         <label>Choice operation<br>
                             <input type="radio" name="operation" value="add" checked>+
@@ -30,12 +32,13 @@
                         <input required type="text" id="second" name="second" placeholder="input second number">
                     </p>
                     <p>
-                        <input type="submit" name="submit" value="Get Result">
+                        <input type="button" id="getResult" value="Get Result">
                     </p>
                     <p>
-                        <output name="result">
-                            <jsp:include page="CalculatorServlet"/>
-                        </output>
+                        <div id="calculatorAjaxResponse"></div>
+                        <%--<output name="result">--%>
+                            <%--<jsp:include page="CalculatorServlet"/>--%>
+                        <%--</output>--%>
                     </p>
                 </form>
             </div>
