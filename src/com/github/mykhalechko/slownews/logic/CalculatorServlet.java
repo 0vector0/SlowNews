@@ -22,8 +22,6 @@ public class CalculatorServlet extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        System.out.println(request.getParameter("operation").toUpperCase());
-
         if (request.getParameter("operation") != null && request.getParameter("first") != null
                 && request.getParameter("second") != null) {
             try {
