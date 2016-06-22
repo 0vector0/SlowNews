@@ -12,7 +12,7 @@
                 </p>
                 <div class="caption">
                     <p class="text-right"><span class="badge">15.06.2016</span></p>
-                    <h3><a href="article.html">DoppioJVM brings JVM apps to the browser</a></h3>
+                    <h3><a href="article.jsp">DoppioJVM brings JVM apps to the browser</a></h3>
                     <p><strong>The project for running JVM code in a browser via JavaScript is still in
                         beta</strong></p>
                     <hr>
@@ -157,6 +157,7 @@
                 </div>
             </div>
         </div>
+        <jsp:include page="article-short.jsp" />
     </div>
 </div>
 <%--</div>--%>
