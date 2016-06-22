@@ -1,0 +1,22 @@
+http://www.infoworld.com/article/3075307/web-development/doppiojvm-brings-jvm-apps-to-the-browser.html
+http://www.infoworld.com/article/3069995/java/new-javascript-library-brings-java-to-browsers-without-applets.html
+http://www.javaworld.com/article/3033445/learn-java/java-101-polymorphism-in-java.html
+http://www.javaworld.com/article/3062567/android/10-android-apps-developers-will-love.html
+http://www.javaworld.com/article/3030214/big-data/open-source-java-projects-apache-phoenix.html
+http://www.javaworld.com/article/2998326/java-security/developers-weigh-json-security-proposals-for-java-ee-8.html
+
+
+
+
+<div class="thumbnail">
+                                    <img src="http://placekitten.com/300/300" alt="Avatar" width="300" height="300">
+                                    <div class="caption">
+                                        <h3>DoppioJVM brings JVM apps to the browser</h3>
+                                        <p><span class="badge">15.06.2016</span></p>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At in non asperiores reprehenderit, laboriosam nesciunt unde labore? Inventore neque aliquam omnis id rem esse, voluptates amet, molestiae obcaecati! Atque, laudantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel assumenda, et, similique itaque unde adipisci culpa nemo corporis vitae. Eius veniam iste voluptatibus ipsa iure quis fugiat deleniti sunt non. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, itaque, voluptatum. Voluptas labore rem possimus aut quod reiciendis ipsam officiis aperiam officia! Corrupti non esse dolore rem consectetur accusantium exercitationem.
+                                        </p>
+                                        <p><a href="#" class="btn btn-primary" role="Подробнее">Button</a>
+                                        </p>
+                                    </div>
+                                </div>
