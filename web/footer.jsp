@@ -1,16 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: vector
-  Date: 22.06.2016
-  Time: 23:47
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<footer class="footer">
+    <div class="container">
+        <p><a href="http://univer-pulse.com.ua/index.php/profkursy/java-for-web">Java web framework 2016</a></p>
+    </div>
+</footer>

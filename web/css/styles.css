@@ -13,9 +13,6 @@ body {
     background: #cc3433;
 }
 
-#left {
-    /*    background: #f6f6f6;*/
-}
 
 #right {
     background: #f6f6f6;
@@ -78,7 +75,7 @@ body {
 }
 
 .article-img {
-    margin-top: -20px;
+    /*margin-top: -20px;*/
     margin-bottom: 0;
     position: relative;
 }
