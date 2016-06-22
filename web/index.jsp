@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="ru">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -40,7 +40,7 @@
             <div class="navbar-collapse collapse">
                 <div class="container">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">News</a></li>
+                        <li><a href="index.jsp">News</a></li>
                         <li><a href="archive.html">Archive</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -48,7 +48,7 @@
                             <p>Hello</p>
                         </li>
                         <li>
-                            <a href="index.html">"USER NAME"</a>
+                            <a href="index.jsp">"USER NAME"</a>
                         </li>
                         <li>
                             <img src="http://placekitten.com/50/50" alt="Avatar" class="img-rounded">
