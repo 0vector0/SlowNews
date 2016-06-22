@@ -5,8 +5,7 @@
     <title>Calculator</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <script src="js/jquery-1.11.1.js" type="text/javascript"></script>
-    <script src="js/calculator-ajax.js" type="text/javascript"></script>
+
 </head>
 <body>
 <div class="container">
@@ -35,10 +34,10 @@
                         <input type="button" id="getResult" value="Get Result">
                     </p>
                     <p>
-                        <div id="calculatorAjaxResponse"></div>
-                        <%--<output name="result">--%>
-                            <%--<jsp:include page="CalculatorServlet"/>--%>
-                        <%--</output>--%>
+                    <div id="calculatorAjaxResponse"></div>
+                    <%--<output name="result">--%>
+                    <%--<jsp:include page="CalculatorServlet"/>--%>
+                    <%--</output>--%>
                     </p>
                 </form>
             </div>
@@ -60,5 +59,9 @@
         </p>
     </div>
 </div>
+
+<script src="js/jquery-1.11.1.js" type="text/javascript"></script>
+<script src="js/calculator-ajax.js" type="text/javascript"></script>
+
 </body>
 </html>
