@@ -13,7 +13,7 @@
             <div class="container">
                 <ul class="nav navbar-nav">
                     <li><a href="index.jsp">News</a></li>
-                    <li><a href="archive.html">Archive</a></li>
+                    <li><a href="archive.jsp">Archive</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>

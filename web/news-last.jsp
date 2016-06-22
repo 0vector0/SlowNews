@@ -1,4 +1,3 @@
-<div class="col-md-3" id="last-news">
     <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">Last news</div>
@@ -8,7 +7,6 @@
             <li class="list-group-item">
                 <div><span class="badge">15.06.2016</span></div>
                 <div><a href="">DoppioJVM brings JVM apps to the browser</a></div>
-
             </li>
             <li class="list-group-item">
                 <div><span class="badge">15.06.2016</span></div>
@@ -32,5 +30,3 @@
             </li>
         </ul>
     </div>
-
-</div>

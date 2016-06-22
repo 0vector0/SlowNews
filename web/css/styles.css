@@ -13,11 +13,9 @@ body {
     background: #cc3433;
 }
 
-
-
-#right {
-    background: #f6f6f6;
-}
+/*#right {*/
+    /*background: #f6f6f6;*/
+/*}*/
 
 #center .panel-body img {
     max-width: 100%;

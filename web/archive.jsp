@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
@@ -7,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>SlowNews</title>
+    <title>Archive SlowNews</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -22,7 +23,6 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 
 <body>
@@ -30,13 +30,8 @@
 <jsp:include page="navbar.jsp"/>
 
 <div class="container">
-    <div class="row" id="main-content">
-        <div class="col-md-3" id="last-news">
-            <jsp:include page="news-last.jsp"/>
-        </div>
-        <div class="col-md-9" id="news">
-            <jsp:include page="news.jsp"/>
-        </div>
+    <div class="row" id="news-archive">
+        <jsp:include page="news-archive.jsp"/>
     </div>
 </div>
 
@@ -44,7 +39,6 @@
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 <script src="js/salvattore.min.js"></script>
