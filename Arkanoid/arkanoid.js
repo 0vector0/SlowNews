@@ -6,21 +6,53 @@ function init() {
     canvas.width = 24 * cellSize;
     canvas.height = 24 * cellSize;
     context = canvas.getContext('2d');
+    field = new brick("#A9F5F2", 0, 0, canvas.width, canvas.height);
+    border = new brick("black", canvas.height / 2, canvas.height - cellSize, 3 * cellSize, cellSize);
 
-    draw();
+
+    // draw();
+
+    canvas.onmousemove = borderMove;
+    setInterval(play, 1000 / 50);
+
 }
 
 // Отрисовка игры
 function draw() {
-
-    context.fillStyle = '#A9F5F2';
-    context.fillRect(0, 0, canvas.width, canvas.height);
+    field.draw();
     RenderLevel();
+    border.draw();
+}
+
+function play() {
+    draw(); // отрисовываем всё на холсте
+    // update(); // обновляем координаты
 }
 
 
-var field = document.getElementById("field");
-var context = field.getContext('2d');
+function borderMove(e) {
+    var x = e.pageX;
+    if (border.width / 2 < x && x < field.width - border.width / 2 ) {
+        border.x = x - border.width / 2;
+    }
+}
+
+
+
+function brick(color, x, y, width, height) {
+    this.color = color; // цвет прямоугольника
+    this.x = x; // координата х
+    this.y = y; // координата у
+    this.width = width; // ширина
+    this.height = height; // высота
+    this.draw = function () // Метод рисующий прямоугольник
+    {
+        context.fillStyle = "grey";
+        fillRoundedRect(this.x, this.y, this.width, this.height, 5);
+        context.fillStyle = this.color;
+        fillRoundedRect(this.x + 2, this.y + 2, this.width - 4, this.height - 4, 3);
+    }
+}
 
 
 function RenderLevel() {
@@ -39,21 +71,23 @@ function RenderLevel() {
     ];
 
     var color;
+    var number = 0;
     for (var j = 0; j < map.length; j++) {
-        color = colors[(Math.floor(Math.random() * colors.length))];
+
+        // color = colors[(Math.floor(Math.random() * colors.length))];
+        color = colors[number];
         for (var i = 0; i < map[j].length; i++) {
             if ((map[j][i]) == 1) {
-                DrawBrick(i * 2 * cellSize, j * cellSize, color);
+                new brick(color, i * 2 * cellSize, j * cellSize, 2 * cellSize, cellSize).draw();
+                // DrawBrick(i * 2 * cellSize, j * cellSize, color);
             }
         }
+        if (number == colors.length - 1) {
+            number = 0;
+        } else {
+            number++;
+        }
     }
-}
-
-function DrawBrick(x, y, color) {
-    context.fillStyle = "grey";
-    fillRoundedRect(x, y, 2 * cellSize, cellSize, 5);
-    context.fillStyle = color;
-    fillRoundedRect(x + 2, y + 2, 2 * cellSize - 4, cellSize - 4, 3);
 }
 
 function fillRoundedRect(x, y, w, h, r) {
