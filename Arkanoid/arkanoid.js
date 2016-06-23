@@ -8,13 +8,15 @@ function init() {
     context = canvas.getContext('2d');
     field = new brick("#A9F5F2", 0, 0, canvas.width, canvas.height, 5);
     border = new brick("black", canvas.height / 2, canvas.height - cellSize, 3 * cellSize, cellSize, 5);
-    ball = new brick("black", canvas.width / 2, canvas.height / 2, cellSize, cellSize, 14)
+    ball = new brick("black", border.x + border.width / 2, canvas.height - 2 * border.height, cellSize, cellSize, 14);
+    ball.vX = 2; // скорость по оси х
+    ball.vY = 2; // скорость по оси у
 
 
     // draw();
 
     canvas.onmousemove = borderMove;
-    setInterval(play, 1000 / 50);
+    setInterval(play, 10);
 
 }
 
@@ -28,9 +30,21 @@ function draw() {
 
 function play() {
     draw(); // отрисовываем всё на холсте
-    // update(); // обновляем координаты
+    update(); // обновляем координаты
 }
 
+
+function collision(objA, objB) {
+    if (objA.x + objA.width > objB.x &&
+        objA.x < objB.x + objB.width &&
+        objA.y + objA.height > objB.y &&
+        objA.y < objB.y + objB.height) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
 function borderMove(e) {
     var x = e.pageX;
@@ -52,14 +66,43 @@ function brick(color, x, y, width, height, radius) {
         context.fillStyle = "grey";
         fillRoundedRect(this.x, this.y, this.width, this.height, this.radius);
         context.fillStyle = this.color;
-        fillRoundedRect(this.x + 2, this.y + 2, this.width - 4, this.height - 4, this.radius-2);
+        fillRoundedRect(this.x + 2, this.y + 2, this.width - 4, this.height - 4, this.radius - 2);
     }
 }
 
 function update() {
+
+// меняем координаты шарика
+    // Движение по оси У
+    // соприкосновение потолком игрового поля
+    if (ball.y < 0) {
+        ball.vY = -ball.vY;
+    }
+    // соприкосновение с полом игрового поля
+    if (ball.y + ball.height > field.height) {
+        //  ball.vY = -ball.vY;
+        alert("GAME OVER");
+        document.location.reload();
+
+    }
+
+    // Движение по оси Х
+    if (ball.x < 0) {
+        // столкновение с левой стеной
+        ball.vX = -ball.vX;
+    }
+    if (ball.x + ball.width > field.width) {
+        // столкновение с правой
+        ball.vX = -ball.vX;
+    }
+
+    if ((collision(border, ball))) {
+        ball.vY = -ball.vY;
+    }
+
     // меняем координаты шарика
-    ball.x += ball.vX;
-    ball.y += ball.vY;
+    ball.x -= ball.vX;
+    ball.y -= ball.vY;
 
 }
 
