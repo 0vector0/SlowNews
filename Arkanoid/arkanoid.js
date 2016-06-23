@@ -2,7 +2,7 @@ function init() {
     canvas = document.getElementById("field");
     cellSize = 24;
     colors = ["#FF0000", "#FFFF00", "#40FF00", "#2E2EFE", "#FF00F3", "#FF005A"];
-
+    brics  = [];
     canvas.width = 24 * cellSize;
     canvas.height = 24 * cellSize;
     context = canvas.getContext('2d');
@@ -32,6 +32,7 @@ function play() {
     draw(); // отрисовываем всё на холсте
     update(); // обновляем координаты
 }
+
 
 
 function collision(objA, objB) {
@@ -80,8 +81,8 @@ function update() {
     }
     // соприкосновение с полом игрового поля
     if (ball.y + ball.height > field.height) {
-        //  ball.vY = -ball.vY;
-        alert("GAME OVER");
+         ball.vY = -ball.vY;
+        // alert("GAME OVER");
         document.location.reload();
 
     }
@@ -124,14 +125,18 @@ function RenderLevel() {
 
     var color;
     var number = 0;
+    var count = 0;
     for (var j = 0; j < map.length; j++) {
 
         // color = colors[(Math.floor(Math.random() * colors.length))];
         color = colors[number];
         for (var i = 0; i < map[j].length; i++) {
             if ((map[j][i]) == 1) {
-                new brick(color, i * 2 * cellSize, j * cellSize, 2 * cellSize, cellSize, 5).draw();
+                brics[count] = new brick(color, i * 2 * cellSize, j * cellSize, 2 * cellSize, cellSize, 5).draw();
                 // DrawBrick(i * 2 * cellSize, j * cellSize, color);
+
+                count++;
+
             }
         }
         if (number == colors.length - 1) {
