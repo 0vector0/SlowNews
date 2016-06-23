@@ -6,8 +6,9 @@ function init() {
     canvas.width = 24 * cellSize;
     canvas.height = 24 * cellSize;
     context = canvas.getContext('2d');
-    field = new brick("#A9F5F2", 0, 0, canvas.width, canvas.height);
-    border = new brick("black", canvas.height / 2, canvas.height - cellSize, 3 * cellSize, cellSize);
+    field = new brick("#A9F5F2", 0, 0, canvas.width, canvas.height, 5);
+    border = new brick("black", canvas.height / 2, canvas.height - cellSize, 3 * cellSize, cellSize, 5);
+    ball = new brick("black", canvas.width / 2, canvas.height / 2, cellSize, cellSize, 14)
 
 
     // draw();
@@ -21,6 +22,7 @@ function init() {
 function draw() {
     field.draw();
     RenderLevel();
+    ball.draw();
     border.draw();
 }
 
@@ -32,26 +34,33 @@ function play() {
 
 function borderMove(e) {
     var x = e.pageX;
-    if (border.width / 2 < x && x < field.width - border.width / 2 ) {
+    if (border.width / 2 < x && x < field.width - border.width / 2) {
         border.x = x - border.width / 2;
     }
 }
 
 
-
-function brick(color, x, y, width, height) {
+function brick(color, x, y, width, height, radius) {
     this.color = color; // цвет прямоугольника
     this.x = x; // координата х
     this.y = y; // координата у
     this.width = width; // ширина
     this.height = height; // высота
+    this.radius = radius; //радиус скруглений
     this.draw = function () // Метод рисующий прямоугольник
     {
         context.fillStyle = "grey";
-        fillRoundedRect(this.x, this.y, this.width, this.height, 5);
+        fillRoundedRect(this.x, this.y, this.width, this.height, this.radius);
         context.fillStyle = this.color;
-        fillRoundedRect(this.x + 2, this.y + 2, this.width - 4, this.height - 4, 3);
+        fillRoundedRect(this.x + 2, this.y + 2, this.width - 4, this.height - 4, this.radius-2);
     }
+}
+
+function update() {
+    // меняем координаты шарика
+    ball.x += ball.vX;
+    ball.y += ball.vY;
+
 }
 
 
@@ -78,7 +87,7 @@ function RenderLevel() {
         color = colors[number];
         for (var i = 0; i < map[j].length; i++) {
             if ((map[j][i]) == 1) {
-                new brick(color, i * 2 * cellSize, j * cellSize, 2 * cellSize, cellSize).draw();
+                new brick(color, i * 2 * cellSize, j * cellSize, 2 * cellSize, cellSize, 5).draw();
                 // DrawBrick(i * 2 * cellSize, j * cellSize, color);
             }
         }
