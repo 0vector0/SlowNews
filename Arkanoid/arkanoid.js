@@ -1,5 +1,5 @@
 function init() {
-    canvas = document.getElementById("field");
+    var canvas = document.getElementById("field");
     scale = 24;
     colors = ["#FF0000", "#FFFF00", "#40FF00", "#2E2EFE", "#FF00F3", "#FF005A"];
 
@@ -57,6 +57,7 @@ function draw() {
 function play() {
     draw(); // отрисовываем всё на холсте
     update(); // обновляем координаты
+
 }
 
 
@@ -112,15 +113,17 @@ function brick(color, x, y, width, height, radius, visible) {
 
 function update() {
 
+
+
     // меняем координаты шарика
     // Движение по оси У
     if (ball.y < 0) {
-        // соприкосновение потолком игрового поля
+        // соприкосновение верхом
         ball.vY = -ball.vY;
     }
 
     if (ball.y + ball.height > field.height) {
-        // соприкосновение с полом игрового поля
+        // соприкосновение с низом
         ball.vY = -ball.vY;
         // alert("please try again");
         document.location.reload();
@@ -133,19 +136,17 @@ function update() {
         ball.vX = -ball.vX;
     }
     if (ball.x + ball.width > field.width) {
-        // столкновение с правой
+        // столкновение с правой стеной
         ball.vX = -ball.vX;
     }
-
+    // столкновение с доской
     if (collisionBorder(border, ball)) {
-
-        if (ball.x   < (border.x +  scale) && ball.vX < 0) {
+        if (ball.x < (border.x + scale) && ball.vX < 0) {
             ball.vX = -ball.vX;
         }
         if (ball.x > (border.x + border.width - scale) && ball.vX > 0) {
             ball.vX = -ball.vX;
         }
-
         ball.vY = -ball.vY;
     }
 
@@ -170,8 +171,10 @@ function update() {
     }
 
 // меняем координаты шарика
-    ball.x -= ball.vX;
-    ball.y -= ball.vY;
+    ball.x = ball.x - ball.vX;
+    // ball.x -= ball.vX;
+    // ball.y -= ball.vY;
+    ball.y = ball.y - ball.vY;
 
 }
 
