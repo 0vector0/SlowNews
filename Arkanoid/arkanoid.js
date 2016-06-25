@@ -1,33 +1,51 @@
 function init() {
     canvas = document.getElementById("field");
+
     scale = 24;
     colors = ["#FF0000", "#FFFF00", "#40FF00", "#2E2EFE", "#FF00F3", "#FF005A"];
-    canvas.width = 24 * scale;
-    canvas.height = 24 * scale;
+    canvas.width = 26 * scale;
+    canvas.height = 26 * scale;
     context = canvas.getContext('2d');
-    field = new brick("#A9F5F2", 0, 0, canvas.width, canvas.height, 5);
-    border = new brick("black", (canvas.height / 2 - 4 * scale / 2), canvas.height - scale, 4 * scale, scale, 5);
-    ball = new brick("black", border.x + border.width / 2, canvas.height - 2 * border.height, scale, scale, 14);
+    field = new brick("#A9F5F2", 0, 0, canvas.width, canvas.height, 0);
+    border = new brick("black", canvas.height / 2 - 5 * scale / 2, canvas.height - scale, 4 * scale, scale, 5);
+    ball = new brick("black", border.x + border.width / 2 - scale / 2, canvas.height - 2 * border.height,
+        scale, scale, scale / 2+ 1);
 
     // X-axis speed
-    ball.vX = 2;
+    ball.vX = scale / 12;
     // Y-axis speed
-    ball.vY = 2;
+    ball.vY = scale / 12;
 
-    var mapLevel = [
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0],
-        [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0],
-        [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1],
-        [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1],
-        [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1],
-        [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1],
-        [0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1],
-        [0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1],
-        [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+    mapLevel = [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+        [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+        [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+        [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+        [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+        [0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0],
+        [0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0],
+        [0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0],
+        [0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     ];
 
     bricks = [];
+    newLevel();
+    canvas.onmousemove = moveBorder;
+    setInterval(play, 10);
+
+}
+
+function newLevel() {
     var color;
     var number = 0;
     for (var j = 0; j < mapLevel.length; j++) {
@@ -42,9 +60,6 @@ function init() {
             number++;
         }
     }
-
-    canvas.onmousemove = moveBorder;
-    setInterval(play, 10);
 
 }
 
@@ -68,6 +83,14 @@ function brick(color, x, y, width, height, radius, visible) {
 function play() {
     draw();
     update();
+    if (fieldIsEmpty()) {
+        alert("WIN")
+        newLevel();
+        border.x = canvas.height / 2 - 4 * scale / 2;
+        border.y = canvas.height - scale;
+        ball.x = border.x + border.width / 2;
+        ball.y = canvas.height - 2 * border.height;
+    }
 }
 
 // Render the game
@@ -191,4 +214,16 @@ function fillRoundedRect(x, y, w, h, r) {
     context.lineTo(x, y + r);
     context.quadraticCurveTo(x, y, x + r, y);
     context.fill();
+}
+
+function fieldIsEmpty() {
+    var empty = true;
+    for (var j = 0; j < bricks.length; j++) {
+        for (var i = 0; i < bricks[j].length; i++) {
+            if ((bricks[j][i]).visible == 1) {
+                empty = false;
+            }
+        }
+    }
+    return empty;
 }
