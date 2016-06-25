@@ -1,16 +1,18 @@
 function init() {
-    var canvas = document.getElementById("field");
+    canvas = document.getElementById("field");
     scale = 24;
     colors = ["#FF0000", "#FFFF00", "#40FF00", "#2E2EFE", "#FF00F3", "#FF005A"];
-
     canvas.width = 24 * scale;
     canvas.height = 24 * scale;
     context = canvas.getContext('2d');
     field = new brick("#A9F5F2", 0, 0, canvas.width, canvas.height, 5);
     border = new brick("black", (canvas.height / 2 - 4 * scale / 2), canvas.height - scale, 4 * scale, scale, 5);
     ball = new brick("black", border.x + border.width / 2, canvas.height - 2 * border.height, scale, scale, 14);
-    ball.vX = 2; // скорость по оси х
-    ball.vY = 2; // скорость по оси у
+
+    // X-axis speed
+    ball.vX = 2;
+    // Y-axis speed
+    ball.vY = 2;
 
     var mapLevel = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -41,25 +43,110 @@ function init() {
         }
     }
 
-    canvas.onmousemove = borderMove;
+    canvas.onmousemove = moveBorder;
     setInterval(play, 10);
 
 }
 
-// Отрисовка игры
+function brick(color, x, y, width, height, radius, visible) {
+    this.color = color; // цвет прямоугольника
+    this.x = x; // координата х
+    this.y = y; // координата у
+    this.width = width; // ширина
+    this.height = height; // высота
+    this.radius = radius; //радиус скруглений
+    this.visible = visible; //видимость
+    this.draw = function () // Метод рисующий прямоугольник
+    {
+        context.fillStyle = "grey";
+        fillRoundedRect(this.x, this.y, this.width, this.height, this.radius);
+        context.fillStyle = this.color;
+        fillRoundedRect(this.x + 2, this.y + 2, this.width - 4, this.height - 4, this.radius - 2);
+    }
+}
+
+function play() {
+    draw();
+    update();
+}
+
+// Render the game
 function draw() {
     field.draw();
     ball.draw();
     border.draw();
-    RenderLevel(bricks);
+    renderLevel(bricks);
 }
 
-function play() {
-    draw(); // отрисовываем всё на холсте
-    update(); // обновляем координаты
-
+function renderLevel(bricks) {
+    for (var j = 0; j < bricks.length; j++) {
+        for (var i = 0; i < bricks[j].length; i++) {
+            if ((bricks[j][i]).visible == 1) {
+                (bricks[j][i]).draw();
+            }
+        }
+    }
 }
 
+function update() {
+    // Change the coordinates of the ball
+    // in the Y-axis
+    if (ball.y < 0) {
+        // contact with the top
+        ball.vY = -ball.vY;
+    }
+    if (ball.y + ball.height > field.height) {
+        // contact with the bottom
+        ball.vY = -ball.vY;
+        // alert("please try again");
+        document.location.reload();
+    }
+
+    // in the X-axis
+    if (ball.x < 0) {
+        // contact with the left wall
+        ball.vX = -ball.vX;
+    }
+    if (ball.x + ball.width > field.width) {
+        // contact with the right wall
+        ball.vX = -ball.vX;
+    }
+    // contact with the board
+    if (collisionBorder(border, ball)) {
+        if (ball.x < (border.x + scale) && ball.vX < 0) {
+            ball.vX = -ball.vX;
+        }
+        if (ball.x > (border.x + border.width - scale) && ball.vX > 0) {
+            ball.vX = -ball.vX;
+        }
+        ball.vY = -ball.vY;
+    }
+
+    // contact with bricks
+    for (var j = 0; j < bricks.length; j++) {
+        for (var i = 0; i < bricks[j].length; i++) {
+            if (collision((bricks[j][i]), ball) && ((bricks[j][i]).visible == 1)) {
+                (bricks[j][i]).visible = 0;
+                if (((bricks[j][i]).y + (bricks[j][i]).height) <= ball.y) {
+                    ball.vY = -ball.vY;
+                }
+                if ((bricks[j][i]).y >= (ball.y + ball.height)) {
+                    ball.vY = -ball.vY;
+                }
+                if ((bricks[j][i]).x >= (ball.x + ball.width)) {
+                    ball.vX = -ball.vX;
+                }
+                if (((bricks[j][i]).x + (bricks[j][i]).width) <= ball.x) {
+                    ball.vX = -ball.vX;
+                }
+            }
+        }
+    }
+
+// change the coordinates of the ball
+    ball.x = ball.x - ball.vX;
+    ball.y = ball.y - ball.vY;
+}
 
 function collision(objA, objB) {
     if (objA.x + objA.width >= objB.x &&
@@ -85,107 +172,10 @@ function collisionBorder(objA, objB) {
     }
 }
 
-
-function borderMove(e) {
+function moveBorder(e) {
     var x = e.pageX;
     if (border.width / 2 < x && x < field.width - border.width / 2) {
         border.x = x - border.width / 2;
-    }
-}
-
-
-function brick(color, x, y, width, height, radius, visible) {
-    this.color = color; // цвет прямоугольника
-    this.x = x; // координата х
-    this.y = y; // координата у
-    this.width = width; // ширина
-    this.height = height; // высота
-    this.radius = radius; //радиус скруглений
-    this.visible = visible; //видимость
-    this.draw = function () // Метод рисующий прямоугольник
-    {
-        context.fillStyle = "grey";
-        fillRoundedRect(this.x, this.y, this.width, this.height, this.radius);
-        context.fillStyle = this.color;
-        fillRoundedRect(this.x + 2, this.y + 2, this.width - 4, this.height - 4, this.radius - 2);
-    }
-}
-
-function update() {
-
-
-
-    // меняем координаты шарика
-    // Движение по оси У
-    if (ball.y < 0) {
-        // соприкосновение верхом
-        ball.vY = -ball.vY;
-    }
-
-    if (ball.y + ball.height > field.height) {
-        // соприкосновение с низом
-        ball.vY = -ball.vY;
-        // alert("please try again");
-        document.location.reload();
-
-    }
-
-    // Движение по оси Х
-    if (ball.x < 0) {
-        // столкновение с левой стеной
-        ball.vX = -ball.vX;
-    }
-    if (ball.x + ball.width > field.width) {
-        // столкновение с правой стеной
-        ball.vX = -ball.vX;
-    }
-    // столкновение с доской
-    if (collisionBorder(border, ball)) {
-        if (ball.x < (border.x + scale) && ball.vX < 0) {
-            ball.vX = -ball.vX;
-        }
-        if (ball.x > (border.x + border.width - scale) && ball.vX > 0) {
-            ball.vX = -ball.vX;
-        }
-        ball.vY = -ball.vY;
-    }
-
-    for (var j = 0; j < bricks.length; j++) {
-        for (var i = 0; i < bricks[j].length; i++) {
-            if (collision((bricks[j][i]), ball) && ((bricks[j][i]).visible == 1)) {
-                (bricks[j][i]).visible = 0;
-                if (((bricks[j][i]).y + (bricks[j][i]).height) <= ball.y) {
-                    ball.vY = -ball.vY;
-                }
-                if ((bricks[j][i]).y >= (ball.y + ball.height)) {
-                    ball.vY = -ball.vY;
-                }
-                if ((bricks[j][i]).x >= (ball.x + ball.width)) {
-                    ball.vX = -ball.vX;
-                }
-                if (((bricks[j][i]).x + (bricks[j][i]).width) <= ball.x) {
-                    ball.vX = -ball.vX;
-                }
-            }
-        }
-    }
-
-// меняем координаты шарика
-    ball.x = ball.x - ball.vX;
-    // ball.x -= ball.vX;
-    // ball.y -= ball.vY;
-    ball.y = ball.y - ball.vY;
-
-}
-
-
-function RenderLevel(bricks) {
-    for (var j = 0; j < bricks.length; j++) {
-        for (var i = 0; i < bricks[j].length; i++) {
-            if ((bricks[j][i]).visible == 1) {
-                (bricks[j][i]).draw();
-            }
-        }
     }
 }
 
