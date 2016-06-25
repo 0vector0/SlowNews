@@ -14,15 +14,15 @@ function init() {
 
     var mapLevel = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
-        [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
-        [0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1],
-        [0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1],
-        [0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1],
-        [0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1],
-        [0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1],
-        [0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1],
-        [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0],
+        [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0],
+        [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1],
+        [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1],
+        [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1],
+        [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1],
+        [0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1],
+        [0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1],
+        [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
     ];
 
     bricks = [];
@@ -63,6 +63,18 @@ function play() {
 
 
 function collision(objA, objB) {
+    if (objA.x + objA.width >= objB.x &&
+        objA.x <= objB.x + objB.width &&
+        objA.y + objA.height >= objB.y &&
+        objA.y <= objB.y + objB.height) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function collisionBorder(objA, objB) {
     if (objA.x + objA.width > objB.x &&
         objA.x < objB.x + objB.width &&
         objA.y + objA.height > objB.y &&
@@ -126,7 +138,7 @@ function update() {
         ball.vX = -ball.vX;
     }
 
-    if (collision(border, ball)) {
+    if (collisionBorder(border, ball)) {
         ball.vY = -ball.vY;
     }
 
@@ -134,7 +146,18 @@ function update() {
         for (var i = 0; i < bricks[j].length; i++) {
             if (collision((bricks[j][i]), ball) && ((bricks[j][i]).visible == 1)) {
                 (bricks[j][i]).visible = 0;
-                ball.vY = -ball.vY;
+                if (((bricks[j][i]).y + (bricks[j][i]).height) <= ball.y) {
+                    ball.vY = -ball.vY;
+                }
+                if ((bricks[j][i]).y >= (ball.y + ball.height)) {
+                    ball.vY = -ball.vY;
+                }
+                if ((bricks[j][i]).x >= (ball.x + ball.width)) {
+                    ball.vX = -ball.vX;
+                }
+                if (((bricks[j][i]).x + (bricks[j][i]).width) <= ball.x) {
+                    ball.vX = -ball.vX;
+                }
             }
         }
     }
