@@ -132,7 +132,7 @@ function update() {
 
     for (var j = 0; j < bricks.length; j++) {
         for (var i = 0; i < bricks[j].length; i++) {
-            if (collision((bricks[j][i]), ball)) {
+            if (collision((bricks[j][i]), ball) && ((bricks[j][i]).visible == 1)) {
                 (bricks[j][i]).visible = 0;
                 ball.vY = -ball.vY;
             }
