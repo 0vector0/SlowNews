@@ -1,14 +1,14 @@
 function init() {
     canvas = document.getElementById("field");
-    cellSize = 24;
+    scale = 24;
     colors = ["#FF0000", "#FFFF00", "#40FF00", "#2E2EFE", "#FF00F3", "#FF005A"];
 
-    canvas.width = 24 * cellSize;
-    canvas.height = 24 * cellSize;
+    canvas.width = 24 * scale;
+    canvas.height = 24 * scale;
     context = canvas.getContext('2d');
     field = new brick("#A9F5F2", 0, 0, canvas.width, canvas.height, 5);
-    border = new brick("black", canvas.height / 2, canvas.height - cellSize, 3 * cellSize, cellSize, 5);
-    ball = new brick("black", border.x + border.width / 2, canvas.height - 2 * border.height, cellSize, cellSize, 14);
+    border = new brick("black", (canvas.height / 2 - 4 * scale / 2), canvas.height - scale, 4 * scale, scale, 5);
+    ball = new brick("black", border.x + border.width / 2, canvas.height - 2 * border.height, scale, scale, 14);
     ball.vX = 2; // скорость по оси х
     ball.vY = 2; // скорость по оси у
 
@@ -32,7 +32,7 @@ function init() {
         color = colors[number];
         bricks[j] = [];
         for (var i = 0; i < mapLevel[j].length; i++) {
-            bricks[j][i] = new brick(color, i * 2 * cellSize, j * cellSize, 2 * cellSize, cellSize, 5, mapLevel[j][i]);
+            bricks[j][i] = new brick(color, i * 2 * scale, j * scale, 2 * scale, scale, 5, mapLevel[j][i]);
         }
         if (number == colors.length - 1) {
             number = 0;
@@ -41,8 +41,6 @@ function init() {
         }
     }
 
-
-    // draw();
     canvas.onmousemove = borderMove;
     setInterval(play, 10);
 
@@ -86,6 +84,7 @@ function collisionBorder(objA, objB) {
     }
 }
 
+
 function borderMove(e) {
     var x = e.pageX;
     if (border.width / 2 < x && x < field.width - border.width / 2) {
@@ -113,17 +112,17 @@ function brick(color, x, y, width, height, radius, visible) {
 
 function update() {
 
-// меняем координаты шарика
+    // меняем координаты шарика
     // Движение по оси У
-    // соприкосновение потолком игрового поля
     if (ball.y < 0) {
+        // соприкосновение потолком игрового поля
         ball.vY = -ball.vY;
-
     }
-    // соприкосновение с полом игрового поля
+
     if (ball.y + ball.height > field.height) {
+        // соприкосновение с полом игрового поля
         ball.vY = -ball.vY;
-        // alert("GAME OVER");
+        // alert("please try again");
         document.location.reload();
 
     }
@@ -139,6 +138,14 @@ function update() {
     }
 
     if (collisionBorder(border, ball)) {
+
+        if (ball.x   < (border.x +  scale) && ball.vX < 0) {
+            ball.vX = -ball.vX;
+        }
+        if (ball.x > (border.x + border.width - scale) && ball.vX > 0) {
+            ball.vX = -ball.vX;
+        }
+
         ball.vY = -ball.vY;
     }
 
@@ -162,7 +169,6 @@ function update() {
         }
     }
 
-
 // меняем координаты шарика
     ball.x -= ball.vX;
     ball.y -= ball.vY;
@@ -171,8 +177,6 @@ function update() {
 
 
 function RenderLevel(bricks) {
-
-    this.bricks = bricks;
     for (var j = 0; j < bricks.length; j++) {
         for (var i = 0; i < bricks[j].length; i++) {
             if ((bricks[j][i]).visible == 1) {
