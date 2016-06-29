@@ -1926,7 +1926,7 @@ if (typeof jQuery === 'undefined') {
 
     this.$body
       .find(this.selector)
-      .map(function () {
+      .mapLevel(function () {
         var $el   = $(this)
         var href  = $el.data('target') || $el.attr('href')
         var $href = /^#./.test(href) && $(href)
