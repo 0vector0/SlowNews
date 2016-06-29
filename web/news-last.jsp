@@ -1,3 +1,11 @@
+
+
+   <div class="panel panel-default">
+       <div class="panel-body">
+           Current Date <span class="badge"><jsp:include page="/CurrentDateServlet" flush="true" /></span>
+       </div>
+   </div>
+
     <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">Last news</div>

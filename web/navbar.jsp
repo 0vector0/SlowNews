@@ -1,3 +1,4 @@
+<%@ page import="com.github.mykhalechko.slownews.logic.CurrentDateServlet" %>
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
