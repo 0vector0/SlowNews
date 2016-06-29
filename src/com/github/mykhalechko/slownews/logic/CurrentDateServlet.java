@@ -21,8 +21,7 @@ public class CurrentDateServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         Date dNow = new Date();
-        SimpleDateFormat ft = new SimpleDateFormat("dd.MM.yyy");
+        SimpleDateFormat ft = new SimpleDateFormat("dd.MM.yyy HH.mm.ss");
         out.println(ft.format(dNow));
-
     }
 }

@@ -1,8 +1,10 @@
 
 
+
    <div class="panel panel-default">
        <div class="panel-body">
-           Current Date <span class="badge"><jsp:include page="/CurrentDateServlet" flush="true" /></span>
+           Current Date <span class="badge"><div id="CurrentDateServletResponse"></div></span>
+
        </div>
    </div>
 
