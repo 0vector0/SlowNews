@@ -21,7 +21,10 @@ body {
 .navbar {
     background: #cc3433;
     min-height: 80px;
+}
 
+.navbar-nav {
+    margin-top: 30px !important;
 }
 
 .navbar-default .navbar-brand {
@@ -30,11 +33,6 @@ body {
 }
 
 
-.navbar-brand  img{
-    /*height: 60px;*/
-    /*width: auto;*/
-    /*font-size: 40px;*/
-}
 
 .navbar-brand  {
     font-size: 40px;
@@ -58,6 +56,20 @@ body {
     border-radius: 6px;
     margin-left: 15px;
 }
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #701515;
+}
+.navbar-default .navbar-toggle {
+    border-color: #fff;
+}
+
+
 
 .panel-default > .panel-heading {
     color: white;

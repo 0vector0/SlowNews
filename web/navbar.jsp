@@ -7,30 +7,24 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.jsp">
                 <img src="img/slow-news-logo-new.png" alt="Slow News" class="img-responsive">
             </a>
         </div>
         <div class="navbar-collapse collapse">
             <div class="container">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.jsp">News</a></li>
+                    <li> <a href="index.jsp">News</a></li>
                     <li><a href="archive.jsp">Archive</a></li>
                     <li><a href="calculator.jsp">Calculator</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-
-
                     <li>
-                        <p>Hello</p>
+                        <a href="login.jsp">Sing in</a>
                     </li>
                     <li>
-                        <a href="index.jsp">"USER NAME"</a>
+                        <a href="register.jsp">Sign up</a>
                     </li>
-                    <li>
-                        <img src="http://placekitten.com/50/50" alt="Avatar" class="img-rounded">
-                    </li>
-
                 </ul>
 
             </div>

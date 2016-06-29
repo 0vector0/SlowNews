@@ -1,4 +1,4 @@
-<%--<div class="row">--%>
+<div class="row">
 <div class="col-md-12" id="center">
     <div class="row masonry-index" data-columns>
         <div class="short-article item">
@@ -160,4 +160,4 @@
         <jsp:include page="article-short.jsp" />
     </div>
 </div>
-<%--</div>--%>
+</div>
