@@ -7,7 +7,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">SlowNews</a>
+            <a class="navbar-brand" href="#">
+                <img src="img/slow-news-logo-new.png" alt="Slow News" class="img-responsive">
+            </a>
         </div>
         <div class="navbar-collapse collapse">
             <div class="container">
