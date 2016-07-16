@@ -50,6 +50,7 @@
 <script src="js/salvattore.min.js"></script>
 <script src="js/ajax.js" type="text/javascript"></script>
 <script src="js/comeback.js" type="text/javascript"></script>
+<script src="js/star.js" type="text/javascript"></script>
 </body>
 
 </html>
