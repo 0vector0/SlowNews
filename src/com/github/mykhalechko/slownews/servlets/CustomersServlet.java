@@ -36,7 +36,7 @@ public class CustomersServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nextJsp = "/customers.jsp";
+        String nextJsp = "/WEB-INF/jsp/customers.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJsp);
         dispatcher.forward(request, response);
 

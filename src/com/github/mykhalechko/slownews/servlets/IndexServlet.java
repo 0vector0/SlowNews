@@ -13,7 +13,7 @@ public class IndexServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nextJsp = "/index.jsp";
+        String nextJsp = "/WEB-INF/jsp/index.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJsp);
         dispatcher.forward(request, response);
     }

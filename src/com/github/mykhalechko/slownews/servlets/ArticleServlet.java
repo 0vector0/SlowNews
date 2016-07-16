@@ -13,7 +13,7 @@ public class ArticleServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nextJsp = "/article.jsp";
+        String nextJsp = "/WEB-INF/jsp/article.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJsp);
         dispatcher.forward(request, response);
     }

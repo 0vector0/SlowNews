@@ -40,7 +40,7 @@ public class HomeServlet extends HttpServlet {
 
         request.setAttribute("catsList", catsList);
 
-        String nextJsp = "/home.jsp";
+        String nextJsp = "/WEB-INF/jsp/home.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJsp);
         dispatcher.forward(request, response);
     }

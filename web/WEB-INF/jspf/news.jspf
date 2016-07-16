@@ -7,7 +7,7 @@
                         <button class="btn btn-link" type="submit">
                             <span class="glyphicon glyphicon-star-empty"></span>
                         </button>
-                        <img src="img/news/img_1626-100640300-primary.idge.jpg" alt="" class="img-responsive">
+                        <img src="../../img/news/img_1626-100640300-primary.idge.jpg" alt="" class="img-responsive">
                     </p>
                     <div class="caption">
                         <p class="text-right"><span class="badge">15.06.2016</span></p>
@@ -37,7 +37,7 @@
                         <button class="btn btn-link" type="submit">
                             <span class="glyphicon glyphicon-star-empty"></span>
                         </button>
-                        <img src="img/news/java-151343_1280-100650253-primary.idge.png" alt=""
+                        <img src="../../img/news/java-151343_1280-100650253-primary.idge.png" alt=""
                              class="img-responsive">
                     </p>
                     <div class="caption">
@@ -62,7 +62,7 @@
                         <button class="btn btn-link" type="submit">
                             <span class="glyphicon glyphicon-star-empty"></span>
                         </button>
-                        <img src="img/news/5715017712_55401a554d_z-100646518-primary.idge.jpg" alt=""
+                        <img src="../../img/news/5715017712_55401a554d_z-100646518-primary.idge.jpg" alt=""
                              class="img-responsive">
                     </p>
                     <div class="caption">
@@ -93,7 +93,7 @@
                         <button class="btn btn-link" type="submit">
                             <span class="glyphicon glyphicon-star-empty"></span>
                         </button>
-                        <img src="img/news/android-apps-devs-100658221-orig.jpg" alt=""
+                        <img src="../../img/news/android-apps-devs-100658221-orig.jpg" alt=""
                              class="img-responsive">
                     </p>
                     <div class="caption">
@@ -113,7 +113,7 @@
                         <button class="btn btn-link" type="submit">
                             <span class="glyphicon glyphicon-star-empty"></span>
                         </button>
-                        <img src="img/news/flickr-kdooley-jw-osjp-apache-phoenix-100643374-primary.idge.jpg"
+                        <img src="../../img/news/flickr-kdooley-jw-osjp-apache-phoenix-100643374-primary.idge.jpg"
                              alt="" class="img-responsive">
                     </p>
                     <div class="caption">
@@ -140,7 +140,7 @@
                         <button class="btn btn-link" type="submit">
                             <span class="glyphicon glyphicon-star-empty"></span>
                         </button>
-                        <img src="img/news/coffee-100624048-primary.idge.jpg" alt="" class="img-responsive">
+                        <img src="../../img/news/coffee-100624048-primary.idge.jpg" alt="" class="img-responsive">
                     </p>
                     <div class="caption">
                         <p class="text-right"><span class="badge">15.06.2016</span></p>
@@ -158,7 +158,7 @@
                     </div>
                 </div>
             </div>
-            <jsp:include page="article-short.jsp"/>
+            <jsp:include page="article-short.jspf"/>
         </div>
     </div>
 </div>

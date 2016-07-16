@@ -4,7 +4,7 @@
             <button class="btn btn-link" type="submit">
                 <span class="glyphicon glyphicon-star-empty"></span>
             </button>
-            <img src="img/news/img_1626-100640300-primary.idge.jpg" alt=""
+            <img src="../../img/news/img_1626-100640300-primary.idge.jpg" alt=""
                  class="img-responsive">
         </p>
         <div class="caption">
