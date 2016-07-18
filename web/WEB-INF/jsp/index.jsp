@@ -27,20 +27,20 @@
 
 <body>
 
-<jsp:include page="../jspf/navbar.jspf"/>
+<%@include file="/WEB-INF/jspf/navbar.jspf"%>
 
 <div class="container">
     <div class="row" id="main-content">
         <div class="col-md-3" id="last-news">
-            <jsp:include page="../jspf/news-last.jspf"/>
+            <%@include file="/WEB-INF/jspf/news-last.jspf"%>
         </div>
         <div class="col-md-9" id="news">
-            <jsp:include page="../jspf/news.jspf"/>
+            <%@include file="/WEB-INF/jspf/news.jspf"%>
         </div>
     </div>
 </div>
 
-<jsp:include page="../jspf/footer.jspf"/>
+<%@include file="/WEB-INF/jspf/footer.jspf"%>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

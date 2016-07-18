@@ -20,6 +20,9 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
+                        <a href="user">User</a>
+                    </li>
+                    <li>
                         <a href="login">Sing in</a>
                     </li>
                     <li>

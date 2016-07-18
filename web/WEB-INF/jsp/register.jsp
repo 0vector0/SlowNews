@@ -29,6 +29,7 @@
 
 <body>
 
+
 <jsp:include page="../jspf/navbar.jspf"/>
 
 <div class="container">
