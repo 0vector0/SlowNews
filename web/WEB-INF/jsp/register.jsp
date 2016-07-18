@@ -34,16 +34,16 @@
 
 <div class="container">
     <div class="row" id="main-content">
-        <form class="form-register">
+        <form class="form-register"  method="post" action="/register">
             <h2 class="form-register-heading">Sign up</h2>
             <label for="inputLogin" class="sr-only">Login</label>
-            <input type="text" id="inputLogin" class="form-control" placeholder="Login" required autofocus>
+            <input type="text" id="inputLogin" name="login" class="form-control" placeholder="Login" autofocus>
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address">
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password">
             <label for="confirmPassword" class="sr-only">Confirm password:</label>
-            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password:" required>
+            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password:">
             <br/>
             <button class="btn btn-lg btn-success btn-block" type="submit">Create an account</button>
         </form>
