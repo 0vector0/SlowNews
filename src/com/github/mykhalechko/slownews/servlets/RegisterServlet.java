@@ -33,9 +33,8 @@ public class RegisterServlet extends HttpServlet {
         users.add(user);
 
         request.getServletContext().setAttribute("user", user);
+        request.getServletContext().setAttribute("users", users);
         response.sendRedirect("hello");
-
-
     }
 
 
