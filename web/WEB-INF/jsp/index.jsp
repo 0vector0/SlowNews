@@ -11,11 +11,11 @@
     <title>SlowNews</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="../../css/bootstrap.css">
-    <link rel="stylesheet" href="../../css/font-awesome.css">
-    <link rel="stylesheet" href="../../css/styles.css">
-    <link rel="stylesheet" href="../../css/styles-masonry.css">
-    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles-masonry.css">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,11 +47,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../../js/bootstrap.min.js"></script>
-<script src="../../js/salvattore.min.js"></script>
-<script src="../../js/ajax.js" type="text/javascript"></script>
-<script src="../../js/comeback.js" type="text/javascript"></script>
-<script src="../../js/star.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/salvattore.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/ajax.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/comeback.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/star.js" type="text/javascript"></script>
 </body>
 
 </html>
