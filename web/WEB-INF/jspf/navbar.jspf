@@ -20,17 +20,31 @@
                     <li><a href="../jsp/calculator.jsp">Calculator</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+
+
+
+
                     <li>
                         <a href="user">
                             Hello <c:out value="${sessionScope.user.getLogin()}">guest</c:out>
                         </a>
                     </li>
-                    <li>
-                        <a href="login">Sing in</a>
-                    </li>
-                    <li>
-                        <a href="register">Sign up</a>
-                    </li>
+                    <c:choose>
+                        <c:when test="${sessionScope.user.getLogin() == null}">
+                            <li>
+                                <a href="login">Sing in</a>
+                            </li>
+                            <li>
+                                <a href="register">Sign up</a>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li>
+                                <a href="logout">Sign out</a>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
+
                 </ul>
             </div>
         </div>

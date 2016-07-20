@@ -29,12 +29,14 @@ public class RegisterServlet extends HttpServlet {
         user.setLogin(request.getParameter("login"));
         user.setEmail(request.getParameter("email"));
         user.setPassword(request.getParameter("password"));
-
         users.add(user);
 
         request.getServletContext().setAttribute("user", user);
         request.getServletContext().setAttribute("users", users);
-        response.sendRedirect("hello");
+
+        //login user after register
+        request.getSession().setAttribute("user", user);
+        response.sendRedirect("index");
     }
 
 
