@@ -31,7 +31,8 @@ public class LoginServlet extends HttpServlet {
         Boolean findUser = false;
         for (User user : users) {
             if (user.getLogin().equalsIgnoreCase(login) && user.getPassword().equalsIgnoreCase(password)) {
-                request.getServletContext().setAttribute("user", user);
+//                request.getServletContext().setAttribute("user", user);
+                request.getSession().setAttribute("user", user);
                 findUser = true;
                 response.sendRedirect("hello");
             }
