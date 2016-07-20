@@ -24,8 +24,8 @@
 
 <p>
     <c:forEach items="${customers}" var="customer">
-    <p>${customer}</p>
-    </c:forEach>
+<p>${customer}</p>
+</c:forEach>
 </p>
 </body>
 </html>

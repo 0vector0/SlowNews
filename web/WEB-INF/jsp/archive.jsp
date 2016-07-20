@@ -25,15 +25,15 @@
 </head>
 
 <body>
-<%@include file="/WEB-INF/jspf/navbar.jspf"%>
+<%@include file="/WEB-INF/jspf/navbar.jspf" %>
 
 <div class="container">
     <div class="row" id="news-archive">
-        <%@include file="/WEB-INF/jspf/news-archive.jspf"%>
+        <%@include file="/WEB-INF/jspf/news-archive.jspf" %>
     </div>
 </div>
 
-<%@include file="/WEB-INF/jspf/footer.jspf"%>
+<%@include file="/WEB-INF/jspf/footer.jspf" %>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

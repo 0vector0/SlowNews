@@ -29,11 +29,11 @@
 
 <body>
 
-<%@include file="/WEB-INF/jspf/navbar.jspf"%>
+<%@include file="/WEB-INF/jspf/navbar.jspf" %>
 
 <div class="container">
     <div class="row" id="main-content">
-        <form class="form-register"  method="post" action="/register">
+        <form class="form-register" method="post" action="/register">
             <h2 class="form-register-heading">Sign up</h2>
             <label for="inputLogin" class="sr-only">Login</label>
             <input type="text" id="inputLogin" name="login" class="form-control" placeholder="Login" autofocus>
@@ -49,7 +49,7 @@
     </div>
 </div>
 
-<%@include file="/WEB-INF/jspf/footer.jspf"%>
+<%@include file="/WEB-INF/jspf/footer.jspf" %>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

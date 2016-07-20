@@ -7,7 +7,6 @@ import com.github.mykhalechko.slownews.beans.Article;
  */
 public class ArticlesManager {
 
-
     public static Article getArticleById(int id) {
         Article article = new Article();
 
@@ -28,7 +27,7 @@ public class ArticlesManager {
                 "For now, DoppioJVM is hard to integrate into Web pages because the focus has been more on compatibility than usability, said Vilk. \"It needs more documentation and an integration guide before it's ready for 1.0. At the moment, you need to build it from source if you want to use it.\"\n" +
                 "\n" +
                 "Vilk also noted that while DoppioJVM has excellent compatibility, it could be much faster. It can execute programs written in most JVM languages, including Java, Clojure, Scala, JRuby, and Jython, since it can run those languages out of their JAR files. It requires no plug-ins and is compatible with unmodified JVM programs, but it has been is slower than a native JVM. The technology has served as the default JVM for JavaPoly.js, a library that polyfills native JVM support in the browser.");
-                article.setPicture("/img/news/img_1626-100640300-primary.idge.jpg");
+        article.setPicture("/img/news/img_1626-100640300-primary.idge.jpg");
         return article;
     }
 
