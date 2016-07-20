@@ -29,17 +29,18 @@
 
 <body>
 
-<%@include file="/WEB-INF/jspf/navbar.jspf"%>
+<%@include file="/WEB-INF/jspf/navbar.jspf" %>
 
 <div class="container">
     <div class="row" id="main-content">
         <h3 class="text-center"> ${errorMessage}</h3>
-        <form class="form-signin"  method="post" action="/login">
+        <form class="form-signin" method="post" action="/login">
             <h2 class="form-signin-heading">Please sign in</h2>
             <label for="inputLogin" class="sr-only">Email address</label>
             <input type="text" id="inputLogin" name="login" class="form-control" placeholder="Login" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password"
+                   required>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" value="remember-me"> Remember me
@@ -50,7 +51,7 @@
     </div>
 </div>
 
-<%@include file="/WEB-INF/jspf/footer.jspf"%>
+<%@include file="/WEB-INF/jspf/footer.jspf" %>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

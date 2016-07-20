@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 //                request.getServletContext().setAttribute("user", user);
                 request.getSession().setAttribute("user", user);
                 findUser = true;
-                response.sendRedirect("hello");
+                response.sendRedirect("index");
             }
         }
         if (!findUser) {

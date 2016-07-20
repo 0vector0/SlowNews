@@ -8,9 +8,13 @@
                 <div class="short-article item">
                     <div class="thumbnail">
                         <p class="text-right article-img">
-                            <button class="btn btn-link" type="submit">
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </button>
+
+                            <c:if test="${sessionScope.user.getLogin() != null}">
+                                <button class="btn btn-link" type="submit">
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </button>
+                            </c:if>
+
                             <img src="${article.getPicture()}" alt="" class="img-responsive">
                         </p>
                         <div class="caption">
