@@ -37,13 +37,8 @@
         </div>
         <div class="col-md-9" id="news">
 
-            <jsp:include page="/news"/>
+            <jsp:include page="/news" flush="true"/>
 
-
-            <%--<%@include file="/WEB-INF/jspf/news.jspf" %>--%>
-            <%--<c:forEach items="${articles}" var="article">--%>
-            <%--<p>${article}</p>--%>
-            <%--</c:forEach>--%>
         </div>
     </div>
 </div>
