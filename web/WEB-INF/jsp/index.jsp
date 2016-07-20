@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <html>
 
 <head>
@@ -27,20 +28,20 @@
 
 <body>
 
-<%@include file="/WEB-INF/jspf/navbar.jspf"%>
+<%@include file="/WEB-INF/jspf/navbar.jspf" %>
 
 <div class="container">
     <div class="row" id="main-content">
         <div class="col-md-3" id="last-news">
-            <%@include file="/WEB-INF/jspf/news-last.jspf"%>
+            <%@include file="/WEB-INF/jspf/news-last.jspf" %>
         </div>
         <div class="col-md-9" id="news">
-            <%@include file="/WEB-INF/jspf/news.jspf"%>
+            <%@include file="/WEB-INF/jspf/news.jspf" %>
         </div>
     </div>
 </div>
 
-<%@include file="/WEB-INF/jspf/footer.jspf"%>
+<%@include file="/WEB-INF/jspf/footer.jspf" %>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

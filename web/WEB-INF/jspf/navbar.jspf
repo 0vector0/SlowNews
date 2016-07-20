@@ -1,3 +1,4 @@
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -20,7 +21,17 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="user">User</a>
+                        <a href="user">
+                            Hello <c:out value="${sessionScope.user.getLogin()}">guest</c:out>
+                        </a>
+                    <%--<c:choose>--%>
+                        <%--<c:when test="${user.getLogin() != null}">--%>
+                            <%--<a href="user">when</a>--%>
+                        <%--</c:when>--%>
+                        <%--<c:otherwise>--%>
+                            <%--<a href="user">otherwise</a>--%>
+                        <%--</c:otherwise>--%>
+                    <%--</c:choose>--%>
                     </li>
                     <li>
                         <a href="login">Sing in</a>
