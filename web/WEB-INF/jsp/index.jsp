@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
+<%--<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>--%>
 <html>
 
 <head>
@@ -36,7 +36,14 @@
             <%@include file="/WEB-INF/jspf/news-last.jspf" %>
         </div>
         <div class="col-md-9" id="news">
-            <%@include file="/WEB-INF/jspf/news.jspf" %>
+
+            <jsp:include page="/news"/>
+
+
+            <%--<%@include file="/WEB-INF/jspf/news.jspf" %>--%>
+            <%--<c:forEach items="${articles}" var="article">--%>
+            <%--<p>${article}</p>--%>
+            <%--</c:forEach>--%>
         </div>
     </div>
 </div>

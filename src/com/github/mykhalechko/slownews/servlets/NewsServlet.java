@@ -1,6 +1,7 @@
 package com.github.mykhalechko.slownews.servlets;
 
 import com.github.mykhalechko.slownews.beans.Article;
+import com.github.mykhalechko.slownews.beans.Customer;
 import com.github.mykhalechko.slownews.logic.ArticlesManager;
 
 import javax.servlet.RequestDispatcher;
@@ -13,25 +14,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-//@WebServlet("/index")
-@WebServlet(name="IndexServlet", urlPatterns={"/index"})
-public class IndexServlet extends HttpServlet {
+@WebServlet("/news")
+public class NewsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//        List<Article> articles = new ArrayList<>();
-//
-//        articles.add(ArticlesManager.getArticleById(1));
-//        articles.add(ArticlesManager.getArticleById(1));
-//        articles.add(ArticlesManager.getArticleById(1));
-//        articles.add(ArticlesManager.getArticleById(1));
-//
-//        request.getServletContext().setAttribute("articles", articles);
 
+        List<Article> articles = new ArrayList<>();
 
+        articles.add(ArticlesManager.getArticleById(1));
+        articles.add(ArticlesManager.getArticleById(1));
+        articles.add(ArticlesManager.getArticleById(1));
+        articles.add(ArticlesManager.getArticleById(1));
 
-        String nextJsp = "/WEB-INF/jsp/index.jsp";
+        request.getServletContext().setAttribute("articles", articles);
+//        response.sendRedirect("/WEB-INF/jspf/news.jspf");
+
+        String nextJsp = "/WEB-INF/jspf/news.jspf";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJsp);
         dispatcher.forward(request, response);
     }
