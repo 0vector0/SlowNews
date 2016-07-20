@@ -14,3 +14,21 @@ $(document).ready(function () {
         });
     });
 });
+
+
+$(document).ready(function () {
+
+    setInterval('show()', 1000);
+
+
+});
+
+function show() {
+
+
+    $.get('CurrentDateServlet', {}, function (responseText) {
+        $('#CurrentDateServletResponse').text(responseText);
+    });
+
+
+}

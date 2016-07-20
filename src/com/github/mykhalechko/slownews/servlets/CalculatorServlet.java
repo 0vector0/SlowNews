@@ -1,4 +1,7 @@
-package com.github.mykhalechko.slownews.logic;
+package com.github.mykhalechko.slownews.servlets;
+
+import com.github.mykhalechko.slownews.logic.Calculator;
+import com.github.mykhalechko.slownews.logic.Operation;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

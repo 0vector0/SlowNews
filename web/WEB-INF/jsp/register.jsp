@@ -10,13 +10,13 @@
     <title>SlowNews</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
     <%--<link rel="stylesheet" href="css/styles-masonry.css">--%>
-    <link rel="stylesheet" href="css/singin.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/singin.css">
 
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,34 +29,34 @@
 
 <body>
 
-<jsp:include page="navbar.jsp"/>
+<%@include file="/WEB-INF/jspf/navbar.jspf"%>
 
 <div class="container">
     <div class="row" id="main-content">
-        <form class="form-register">
+        <form class="form-register"  method="post" action="/register">
             <h2 class="form-register-heading">Sign up</h2>
             <label for="inputLogin" class="sr-only">Login</label>
-            <input type="text" id="inputLogin" class="form-control" placeholder="Login" required autofocus>
+            <input type="text" id="inputLogin" name="login" class="form-control" placeholder="Login" autofocus>
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address">
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password">
             <label for="confirmPassword" class="sr-only">Confirm password:</label>
-            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password:" required>
+            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password:">
             <br/>
             <button class="btn btn-lg btn-success btn-block" type="submit">Create an account</button>
         </form>
     </div>
 </div>
 
-<jsp:include page="footer.jsp"/>
+<%@include file="/WEB-INF/jspf/footer.jspf"%>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
-<script src="js/salvattore.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/salvattore.min.js"></script>
 </body>
 
 </html>
